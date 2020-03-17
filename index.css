@@ -1,0 +1,76 @@
+/* .fields {
+    padding: 15px;
+}
+
+.col .row {
+    margin-bottom: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+h6 {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+ul:not(.browser-default).list-inline>li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+} */
+
+body {
+    padding: 15px;
+}
+
+.table-sm td,
+.table-sm th {
+    padding: .3rem .75rem;
+}
+
+/* .table-editable tfoot td:last-of-type {
+    display: none;
+} */
+
+.table-editable .tabledit-deleted-row {
+    display: none;
+}
+
+.custom-file-input:focus~.custom-file-label {
+    border-color: #ced4da;
+    box-shadow: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.custom-file-label::after {
+    display: none;
+}
+
+.input-group-text {
+    background-color: #f8f9fa;
+}
+
+.card-header {
+    padding: .5rem 1.25rem;
+}
+
+.custom-file-label {
+    color: #6C757D;
+    margin-bottom: 0;
+}
+
+.custom-file-label-sm {
+    font-size: .875rem;
+}
+
+.form-control:focus {
+    border-color: rgb(206, 212, 218);
+    box-shadow: none;
+}

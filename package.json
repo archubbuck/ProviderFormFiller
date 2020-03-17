@@ -1,0 +1,42 @@
+{
+  "name": "providerformfiller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "electron-updater": "^4.2.5",
+    "fs-extra": "^8.1.0",
+    "jquery": "^3.4.1",
+    "materialize-css": "^1.0.0",
+    "moment": "^2.24.0",
+    "node-pdftk": "^2.1.2",
+    "nodemailer": "^6.4.2",
+    "pdf.js-extract": "^0.1.4",
+    "pdffiller-stream": "^0.2.0"
+  },
+  "devDependencies": {
+    "electron": "^7.1.14",
+    "electron-builder": "^22.4.1",
+    "electron-packager": "^14.2.1"
+  },
+  "win": {
+    "target": [
+      "nsis"
+    ]
+  },
+  "fileAssociations": {},
+  "scripts": {
+    "start": "electron .",
+    "publish": "electron-packager . --platform=win32 --arch=x64 --out=..\\dist --overwrite",
+    "build": "electron-builder build --win --publish never",
+    "deploy": "electron-builder build --win --publish always"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/archubbuck/ProviderFormFiller.git"
+  },
+}

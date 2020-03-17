@@ -1,0 +1,16 @@
+Client Id:  	14c10b66-8c5a-4c14-ab56-80bb91277e5d
+Client Secret:  	lTgVt3ix/Ye9sUJICQ6RZXpMGBbnedATCISTIgHch4s=
+Title:  	Priority
+App Domain:  	localhost
+Redirect URI:  	https://localhost
+
+tenant id: a717c7ee-ad80-4f67-98b4-80488fad548b
+app id: 14c10b66-8c5a-4c14-ab56-80bb91277e5d
+
+
+{
+	"grant_type": "client_credentials",
+	"resource": "00000003-0000-0ff1-ce00-000000000000/demayolaw.sharepoint.com@a717c7ee-ad80-4f67-98b4-80488fad548b",
+	"client_id": "14c10b66-8c5a-4c14-ab56-80bb91277e5d@a717c7ee-ad80-4f67-98b4-80488fad548b",
+	"client_secret": "lTgVt3ix/Ye9sUJICQ6RZXpMGBbnedATCISTIgHch4s="
+}

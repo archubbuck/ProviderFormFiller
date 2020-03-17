@@ -1,0 +1,5 @@
+electron-builder.yml
+out/**
+node_modules
+dist
+test

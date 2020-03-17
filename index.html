@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Filler Thing</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/fontawesome-pro/css/all.min.css" />
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <main>
+        <form>
+
+            <div class="card bg-light mb-3 rounded-0">
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-sm rounded-0 bg-light"
+                                    placeholder="Signed MA" id="file_authorization_template">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control form-control-sm rounded-0 bg-light"
+                                    placeholder="Provider List" id="file_treatment_history">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-sm rounded-0" id="your_name"
+                                    name="your_name" placeholder="Your name">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control form-control-sm rounded-0" id="your_email"
+                                    name="your_email" placeholder="Your email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-sm rounded-0" id="client_name"
+                                    name="client_name" placeholder="Client name">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control form-control-sm rounded-0" id="client_social"
+                                    name="client_social" placeholder="Client social">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-sm rounded-0" id="client_birthday"
+                                    name="client_birthday" placeholder="Client birthday">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control form-control-sm rounded-0" id="client_address"
+                                    name="client_address" placeholder="Client address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-0">
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-sm rounded-0" id="doi_start"
+                                    name="doi_start" placeholder="DOI Start">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control form-control-sm rounded-0" id="doi_end"
+                                    name="doi_end" placeholder="DOI End">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted bg-light">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <small class="text-danger hidden" id="form-validation-summary">
+                                Something went horribly, horribly wrong! Or you didn't finish filling out the form?
+                            </small>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-primary btn-sm rounded-0" id="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="results" class="mb-3"></div>
+            <div class="text-right">
+                <button type="button" class="btn btn-sm btn-primary rounded-0" style="display: none;"
+                    id="export">Submit</button>
+            </div>
+        </form>
+
+        <div id="notification" class="hidden">
+            <p id="message"></p>
+            <button id="close-button" onClick="closeNotification()">
+                Close
+            </button>
+            <button id="restart-button" onClick="restartApp()" class="hidden">
+                Restart
+            </button>
+        </div>
+        <style>
+            #notification {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                width: 200px;
+                padding: 20px;
+                border-radius: 5px;
+                background-color: white;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            .hidden {
+                display: none;
+            }
+        </style>
+        <script>
+            const notification = document.getElementById('notification');
+            const message = document.getElementById('message');
+            const restartButton = document.getElementById('restart-button');
+            ipcRenderer.on('update_available', () => {
+                ipcRenderer.removeAllListeners('update_available');
+                message.innerText = 'A new update is available. Downloading now...';
+                notification.classList.remove('hidden');
+            });
+            ipcRenderer.on('update_downloaded', () => {
+                ipcRenderer.removeAllListeners('update_downloaded');
+                message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
+                restartButton.classList.remove('hidden');
+                notification.classList.remove('hidden');
+            });
+            function closeNotification() {
+                notification.classList.add('hidden');
+            }
+            function restartApp() {
+                ipcRenderer.send('restart_app');
+            }
+        </script>
+    </main>
+    <script>window.$ = window.jQuery = require('jquery');</script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="lib/jquery.tabledit.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
