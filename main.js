@@ -4,7 +4,10 @@ const fs = require("fs-extra");
 const moment = require('moment');
 const PDFExtract = require('pdf.js-extract').PDFExtract;
 const MailComposer = require("nodemailer/lib/mail-composer");
-const { autoUpdater } = require('electron-updater');
+
+require('update-electron-app')({
+    repo: 'https://github.com/archubbuck/ProviderFormFiller'
+})
 
 const pdftk = require('node-pdftk');
 pdftk.configure({
@@ -24,21 +27,7 @@ function createWindow() {
 
     // Open the DevTools.
     // win.webContents.openDevTools()
-
-    win.once('ready-to-show', () => {
-        autoUpdater.checkForUpdatesAndNotify();
-    });
 }
-
-autoUpdater.on('update-available', () => {
-    mainWindow.webContents.send('update_available');
-});
-autoUpdater.on('update-downloaded', () => {
-    mainWindow.webContents.send('update_downloaded');
-});
-ipcMain.on('restart_app', () => {
-    autoUpdater.quitAndInstall();
-});
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
