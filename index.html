@@ -119,33 +119,33 @@
                 display: none;
             }
         </style>
-        <script>
-            const notification = document.getElementById('notification');
-            const message = document.getElementById('message');
-            const restartButton = document.getElementById('restart-button');
-            ipcRenderer.on('update_available', () => {
-                ipcRenderer.removeAllListeners('update_available');
-                message.innerText = 'A new update is available. Downloading now...';
-                notification.classList.remove('hidden');
-            });
-            ipcRenderer.on('update_downloaded', () => {
-                ipcRenderer.removeAllListeners('update_downloaded');
-                message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
-                restartButton.classList.remove('hidden');
-                notification.classList.remove('hidden');
-            });
-            function closeNotification() {
-                notification.classList.add('hidden');
-            }
-            function restartApp() {
-                ipcRenderer.send('restart_app');
-            }
-        </script>
     </main>
     <script>window.$ = window.jQuery = require('jquery');</script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="lib/jquery.tabledit.min.js"></script>
     <script src="index.js"></script>
+    <script>
+        const notification = document.getElementById('notification');
+        const message = document.getElementById('message');
+        const restartButton = document.getElementById('restart-button');
+        ipcRenderer.on('update_available', () => {
+            ipcRenderer.removeAllListeners('update_available');
+            message.innerText = 'A new update is available. Downloading now...';
+            notification.classList.remove('hidden');
+        });
+        ipcRenderer.on('update_downloaded', () => {
+            ipcRenderer.removeAllListeners('update_downloaded');
+            message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
+            restartButton.classList.remove('hidden');
+            notification.classList.remove('hidden');
+        });
+        function closeNotification() {
+            notification.classList.add('hidden');
+        }
+        function restartApp() {
+            ipcRenderer.send('restart_app');
+        }
+    </script>
 </body>
 
 </html>
