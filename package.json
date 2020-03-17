@@ -1,6 +1,6 @@
 {
   "name": "providerformfiller",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "main.js",
   "dependencies": {
@@ -38,5 +38,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/archubbuck/ProviderFormFiller.git"
-  },
+  }
 }
