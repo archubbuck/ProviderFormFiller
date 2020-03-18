@@ -29,7 +29,9 @@
   "fileAssociations": {},
   "scripts": {
     "start": "electron .",
-    "publish": "electron-packager . --platform=win32 --arch=x64 --out=..\\dist --overwrite"
+    "publish": "electron-packager . --platform=win32 --arch=x64 --out=..\\dist --overwrite",
+    "build": "electron-builder build --win --publish never",
+    "deploy": "electron-builder build --win --publish always"
   },
   "keywords": [],
   "author": "",
