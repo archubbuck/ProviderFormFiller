@@ -9,7 +9,7 @@
     "fs-extra": "^8.1.0",
     "jquery": "^3.4.1",
     "materialize-css": "^1.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "node-pdftk": "^2.1.2",
     "nodemailer": "^6.4.2",
     "pdf.js-extract": "^0.1.4",
